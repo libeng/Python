@@ -14,9 +14,10 @@ graphic_dt = np.dtype(
 # Tile struct used for statically defined tile data.
 tile_dt = np.dtype(
     [
-        ("walkable", np.bool),
-        ("transparent", np.bool),
-        ("dark", graphic_dt),
+        ("walkable", np.bool),  # True if this tile can be walked over.
+        ("transparent", np.bool),  # True if this tile doesn't block FOV.
+        ("dark", graphic_dt),  # Graphics for when this tile is not in FOV.
+        ("light", graphic_dt)  # Graphics for when the tile is in FOV.
     ]
 )
 
@@ -25,14 +26,26 @@ def new_title(
         *,  # Enforce the use of keywords, so that parameter order doesn't matter
         walkable: int,
         transparent: int,
-        dark: Tuple[int, Tuple[int, int, int, Tuple[int, int, int]]]) -> np.ndarray:
+        dark: Tuple[int, Tuple[int, int, int, Tuple[int, int, int]]],
+        light: Tuple[int, Tuple[int, int, int], Tuple[int, int, int]]) -> np.ndarray:
     """Helper function for defining individual title types """
-    return np.array((walkable, transparent, dark), dtype=tile_dt)
+    return np.array((walkable, transparent, dark, light), dtype=tile_dt)
 
+
+# SHROUD represents unexplored unseen titles
+SHROUD = np.array((ord(" "), (255, 255, 255), (0, 0, 0)), dtype=graphic_dt)
 
 floor = new_title(
-    walkable=True, transparent=True, dark=(ord(" "), (255, 255, 255), (50, 50, 150))
+    walkable=True,
+    transparent=True,
+    dark=(ord(" "), (255, 255, 255), (50, 50, 150)),
+    light=(ord(" "), (255, 255, 255), (200, 180, 50)),
 )
 
+
 wall = new_title(
-    walkable=False, transparent=False, dark=(ord(" "), (255, 255, 255), (0, 0, 100)))
+    walkable=False,
+    transparent=False,
+    dark=(ord(" "), (255, 255, 255), (0, 0, 100)),
+    light=(ord(" "), (255, 255, 255), (130, 110, 50)),
+)
