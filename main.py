@@ -1,6 +1,3 @@
-#from Easings import test
-#from Classes import Clock, Fighter
-#from GUI import tkintertest, collideball
-from RoguelikeGame import main
+from FlappyBirdGame import flappy_ga
 
-main.main()
+flappy_ga.main()
