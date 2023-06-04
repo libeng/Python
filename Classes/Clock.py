@@ -29,7 +29,7 @@ class Clock(object):
     def show(self):
         """显示时间"""
         return '%02d:%02d:%02d' % \
-               (self._hour, self._minute, self._second)
+            (self._hour, self._minute, self._second)
 
 
 def main():

@@ -1,8 +1,9 @@
 import copy
 
 import tcod
-from RoguelikeGame.engine import Engine
+
 from RoguelikeGame import entity_factories
+from RoguelikeGame.engine import Engine
 from RoguelikeGame.procgen import generate_dungeon
 
 

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 from typing import Optional, Tuple, TypeVar, TYPE_CHECKING, Type
+
 from RoguelikeGame.render_order import RenderOrder
 
 if TYPE_CHECKING:

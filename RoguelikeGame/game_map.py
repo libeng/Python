@@ -4,8 +4,9 @@ from typing import Iterable, Iterator, Optional, TYPE_CHECKING
 
 import numpy as np
 from tcod.console import Console
-from RoguelikeGame.entity import Actor
+
 from RoguelikeGame import tile_types
+from RoguelikeGame.entity import Actor
 
 if TYPE_CHECKING:
     from entity import Entity
@@ -20,15 +21,15 @@ class GameMap:
         self.tiles = np.full((width, height), fill_value=tile_types.wall, order="F")
         self.visible = np.full(
             (width, height), fill_value=False, order="F"
-        )   # Tiles the player can currently see
+        )  # Tiles the player can currently see
         self.explored = np.full(
             (width, height), fill_value=False, order="F"
-        )   # Tiles the player has seen before
+        )  # Tiles the player has seen before
 
     @property
     def actors(self) -> Iterator[Actor]:
         """Iterate over this maps living actors."""
-        yield from(
+        yield from (
             entity
             for entity in self.entities
             if isinstance(entity, Actor) and entity.is_alive
@@ -64,7 +65,7 @@ class GameMap:
         Otherwise, the default is "SHROUD".
         """
 
-        console.tiles_rgb[0 : self.width, 0 : self.height] = np.select(
+        console.tiles_rgb[0: self.width, 0: self.height] = np.select(
             condlist=[self.visible, self.explored],
             choicelist=[self.tiles["light"], self.tiles["dark"]],
             default=tile_types.SHROUD,

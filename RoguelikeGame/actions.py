@@ -4,7 +4,7 @@ from typing import Optional, Tuple, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from RoguelikeGame.engine import Engine
-    from RoguelikeGame.entity import Acotr, Entity
+    from RoguelikeGame.entity import Entity
 
 
 class Action:

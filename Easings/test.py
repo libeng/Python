@@ -1,7 +1,6 @@
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
-from Easings import Back, Bounce, Circ, Cubic, Elastic, Expo, Quad, Quart, Quint, Sine
 
 easings = ['Back',
            'Bounce',

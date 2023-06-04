@@ -64,6 +64,7 @@ class Ball(object):
         pygame.draw.circle(screen, self.color,
                            (self.x, self.y), self.radius, 0)
 
+
 def main():
     # 定义用来装所有球的容器
     balls = []

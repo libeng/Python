@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from typing import Optional, TYPE_CHECKING
+
 import tcod.event
+
 from RoguelikeGame.actions import Action, BumpAction, EscapeAction, WaitAction
 
 if TYPE_CHECKING:

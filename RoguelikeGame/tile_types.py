@@ -42,7 +42,6 @@ floor = new_title(
     light=(ord(" "), (255, 255, 255), (200, 180, 50)),
 )
 
-
 wall = new_title(
     walkable=False,
     transparent=False,

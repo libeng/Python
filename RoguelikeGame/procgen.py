@@ -1,11 +1,13 @@
 from __future__ import annotations
 
-import tcod
 import random
-from RoguelikeGame import entity_factories
 from typing import Iterator, List, Tuple, Type, TYPE_CHECKING
-from RoguelikeGame.game_map import GameMap
+
+import tcod
+
+from RoguelikeGame import entity_factories
 from RoguelikeGame import tile_types
+from RoguelikeGame.game_map import GameMap
 
 if TYPE_CHECKING:
     from RoguelikeGame.engine import Engine
